@@ -1,13 +1,18 @@
 <div class="container">
-  <div class="row">
-    <h1>To-Do View</h1>
+  <div class="row mt-2">
+    <h2>To-Do View</h2>
   </div>
-  
-  <div class="row my-8">
-    <a class="btn btn-primary " href="/" role="button">Back to Home</a>
+
+  <div class="row mt-2">
+    <div class="col">
+      <a class="btn btn-primary w-100" href="/" role="button">Back to Home</a>
+    </div>
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col"></div>
   </div>
-  
-  <div class="row">
+
+  <div class="row mt-4 mx-0">
     <div class="card">
       <div class="card-header">
         <%= todo.id %>
@@ -16,6 +21,12 @@
         <h5 class="card-title"><%= todo.name %></h5>
         <p class="card-text"><%= todo.description %></p>
         <a href="/to-dos/<%= todo.id %>/edit" class="btn btn-primary">Edit This Thing</a>
+        <a 
+            href="/to-dos/<%= todo.id %>/delete" 
+            class="btn btn-danger"
+        >
+            Delete To-Do #<%= todo.id %>
+        </a>
       </div>
     </div>
   </div>

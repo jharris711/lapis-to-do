@@ -1,16 +1,21 @@
-<h1>Edit View</h1>
-
-<br />
-
-<form action="/to-dos/<%= todo.id %>/edit" method="post" class="">
-    <div class="mb-3">
-        <label for="nameInput" class="form-label">Name</label>
-        <input type="text" class="form-control" id="nameInput" name="name" value="<%= todo.name %>">
+<div class="container">
+    <div class="row mt-2">
+        <h2>Edit View</h2>
     </div>
-    <div class="mb-3">
-        <label for="toDoInput" class="form-label">Give your to-do some details</label>
-        <textarea class="form-control" id="toDoInput" name="toDo" rows="3"><%= todo.description %></textarea>
+    <div class="row mt-4">
+        <form action="/to-dos/<%= todo.id %>/edit" method="post" class="">
+            <div class="mb-3">
+                <label for="nameInput" class="form-label">Name</label>
+                <input type="text" class="form-control" id="nameInput" name="name" value="<%= todo.name %>">
+            </div>
+            <div class="mb-3">
+                <label for="toDoInput" class="form-label">Give your to-do some details</label>
+                <textarea class="form-control" id="toDoInput" name="toDo" rows="3"><%= todo.description %></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a class="btn btn-danger" href="/to-dos/<%= todo.id %>" role="button">Cancel</a>
+        </form>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-    <a class="btn btn-danger" href="/to-dos/<%= todo.id %>" role="button">Cancel</a>
-</form>
+</div>
+
+
