@@ -7,7 +7,9 @@ local HomePageFlow = Flow:extend({
     expose_assigns = true,
     render_home_page = function(self)
         local todos = ToDos:select("*")
+
         self.todos = todos
+
         return { render = "home" }
     end
 })
