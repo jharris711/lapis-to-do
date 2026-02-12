@@ -1,0 +1,52 @@
+# Lapis/OpenResty
+logs/
+nginx.conf.compiled
+*.pid
+
+# Lua
+*.lua~
+luac.out
+
+# LuaRocks
+lua_modules/
+.luarocks/
+
+# Development
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment/Config
+.env
+.envrc
+config.local.lua
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+error.log
+access.log
+
+# Editor directories
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS
+Thumbs.db
+desktop.ini
+
+# Node (if you're using any frontend tooling)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build artifacts
+dist/
+build/
