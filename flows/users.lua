@@ -100,7 +100,19 @@ local UsersFlow = Flow:extend({
         return { redirect_to = self:url_for("home") }
     end,
     handle_account = function(self)
-        self.user = Users:find(self.session.user_id)
+        local requested_user_id = tonumber(self.params.id)
+
+        -- Check if logged in
+        if not self.session.user_id then
+            return { redirect_to = self:url_for("login") }
+        end
+
+        -- Check if trying to access someone else's account
+        if self.session.user_id ~= requested_user_id then
+            return { redirect_to = self:url_for("account", { id = self.session.user_id }) }
+        end
+
+        self.user = Users:find(requested_user_id)
 
         return { render = "users/account" }
     end,
