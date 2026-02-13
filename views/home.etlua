@@ -14,7 +14,7 @@
         </form>
     </div>
     <div class="row mt-5">
-        <h2>Your To-Do's:</h2>
+        <h2>My To-Do's:</h2>
         <ul>
             <% for i, todo in ipairs(todos) do %>
                 <div class="card my-4">
@@ -28,7 +28,7 @@
                             href="/to-dos/<%= todo.id %>"
                             class="btn btn-primary"
                         >
-                            Go to To-Do #<%= todo.id %>
+                            View To-do
                         </a>
                     </div>
                 </div>
