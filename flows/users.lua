@@ -118,11 +118,19 @@ local UsersFlow = Flow:extend({
     end,
     handle_edit_account = respond_to({
         GET = function(self)
+            if not self.session.user_id then
+                return { redirect_to = self:url_for("login") }
+            end
+
             self.user = Users:find(self.session.user_id)
 
             return { render = "users/edit" }
         end,
         POST = function(self)
+            if not self.session.user_id then
+                return { redirect_to = self:url_for("login") }
+            end
+
             local user = Users:find(self.session.user_id)
 
             if not user then
