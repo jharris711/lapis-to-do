@@ -2,6 +2,12 @@
     <div class="row mt-2">
         <h2>Log In</h2>
     </div>
+    <% if params.error == "login_required" then %>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            You must be logged in to create a todo.
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    <% end %>
     <div class="row mt-4">
         <form action="/users/login" method="post">
             <div class="mb-3">

@@ -3,15 +3,6 @@
     <h2>To-Do View</h2>
   </div>
 
-  <div class="row mt-2">
-    <div class="col">
-      <a class="btn btn-primary w-100" href="/" role="button">Back to Home</a>
-    </div>
-    <div class="col"></div>
-    <div class="col"></div>
-    <div class="col"></div>
-  </div>
-
   <div class="row mt-4 mx-0">
     <div class="card">
       <div class="card-header">
@@ -20,12 +11,17 @@
       <div class="card-body">
         <h5 class="card-title"><%= todo.name %></h5>
         <p class="card-text"><%= todo.description %></p>
-        <a href="/to-dos/<%= todo.id %>/edit" class="btn btn-primary">Edit This Thing</a>
+        <a
+          href="/to-dos/<%= todo.id %>/edit"
+          class="btn btn-primary"
+        >
+          Edit
+        </a>
         <a 
             href="/to-dos/<%= todo.id %>/delete" 
             class="btn btn-danger"
         >
-            Delete To-Do #<%= todo.id %>
+            Delete
         </a>
       </div>
     </div>

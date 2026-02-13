@@ -31,10 +31,16 @@ local ToDosFlow = Flow:extend({
         return { redirect_to = self:url_for("home") }
       end,
       POST = function(self)
+        if not self.session.user_id then
+          return { redirect_to = self:url_for("login") .. "?error=login_required" }
+        end
+
         local id = self.params.id
+        
         if id then
           return { redirect_to = self:url_for("home") }
         end
+        
         local todo = self.params
         local name = todo['name']
         local description = todo['toDo']
