@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row mt-2">
         <h2 class="">Create a To-Do</h2>
-        <form action="/to-dos" method="post" class="">
+        <form action="<%= url_for("todos") %>" method="post" class="">
             <div class="mb-3">
                 <label for="nameInput" class="form-label">Name</label>
                 <input type="text" class="form-control" id="nameInput" name="name" placeholder="Give your to-do a name">
@@ -24,12 +24,10 @@
                     <div class="card-body">
                         <h5 class="card-title"><%= todo.name %></h5>
                         <p class="card-text"><%= todo.description %></p>
-                        <a
-                            href="/to-dos/<%= todo.id %>"
-                            class="btn btn-primary"
-                        >
-                            View To-do
-                        </a>
+                        <% element("a", { 
+                            href = url_for("todo", { id = todo.id }), 
+                            class = "btn btn-primary" 
+                        }, "View To-do") %>
                     </div>
                 </div>
             <% end %>

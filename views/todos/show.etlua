@@ -11,18 +11,14 @@
       <div class="card-body">
         <h5 class="card-title"><%= todo.name %></h5>
         <p class="card-text"><%= todo.description %></p>
-        <a
-          href="/to-dos/<%= todo.id %>/edit"
-          class="btn btn-primary"
-        >
-          Edit
-        </a>
-        <a 
-            href="/to-dos/<%= todo.id %>/delete" 
-            class="btn btn-danger"
-        >
-            Delete
-        </a>
+        <% element("a", { 
+            href = url_for("edit-todo", { id = todo.id }), 
+            class = "btn btn-primary" 
+        }, "Edit") %>
+        <% element("a", { 
+            href = url_for("delete-todo", { id = todo.id }), 
+            class = "btn btn-danger" 
+        }, "Delete") %>
       </div>
     </div>
   </div>

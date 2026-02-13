@@ -3,7 +3,7 @@
         <h2>Sign Up</h2>
     </div>
     <div class="row mt-4">
-        <form action="" method="post" class="">
+        <form action="<%= url_for("signup") %>" method="post" class="">
             <div class="mb-3">
                 <label
                     for="firstNameInput"
@@ -85,7 +85,7 @@
                 >
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
-            <a class="btn btn-danger" href="/" role="button">Cancel</a>
+            <a class="btn btn-danger" href="<%= url_for("home") %>" role="button">Cancel</a>
         </form>
     </div>
 </div>

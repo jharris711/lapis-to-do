@@ -3,7 +3,7 @@
         <h2>User Account</h2>
     </div>
     <div class="row mt-4">
-        <form action="" method="post" class="">
+        <form action="<%= url_for("edit-account") %>" method="post" class="">
             <fieldset>
                 <div class="mb-3">
                     <label
@@ -86,13 +86,10 @@
             </fieldset>
             <div class="gap-2 d-md-flex mt-2">
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a
-                    class="btn btn-danger"
-                    href="/users/<%= session.user_id %>/account"
-                    role="button"
-                >
-                    Cancel
-                </a>
+                <% element("a", { 
+                    href = url_for("account", { id = user.id }), 
+                    class = "btn btn-danger" 
+                }, "Cancel") %>
             </div>
         </form>
     </div>

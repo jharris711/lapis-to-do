@@ -3,7 +3,7 @@
         <h2>Edit View</h2>
     </div>
     <div class="row mt-4">
-        <form action="/to-dos/<%= todo.id %>/edit" method="post" class="">
+        <form action="<%= url_for("edit-todo", { id = todo.id }) %>" method="post" class="">
             <div class="mb-3">
                 <label for="nameInput" class="form-label">Name</label>
                 <input type="text" class="form-control" id="nameInput" name="name" value="<%= todo.name %>">
@@ -13,7 +13,10 @@
                 <textarea class="form-control" id="toDoInput" name="toDo" rows="3"><%= todo.description %></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
-            <a class="btn btn-danger" href="/to-dos/<%= todo.id %>" role="button">Cancel</a>
+            <% element("a", { 
+                href = url_for("todo", { id = todo.id }), 
+                class = "btn btn-danger" 
+            }, "Cancel") %>
         </form>
     </div>
 </div>

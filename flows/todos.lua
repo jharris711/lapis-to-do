@@ -13,8 +13,6 @@ local ToDosFlow = Flow:extend({
       GET = function(self)
         local id = self.params.id
 
-        print("ID************", id)
-
         if not id or id == "" then
           return "No ID was given"
         end
@@ -76,13 +74,15 @@ local ToDosFlow = Flow:extend({
         return { render = "todos/show", { id = id }}
       end
     }),
-    handle_delete_todo = function(self)
-      local todo = ToDos:find(self.params.id)
+    handle_delete_todo = respond_to({
+      GET = function(self)
+        local todo = ToDos:find(self.params.id)
 
-      todo:delete()
+        todo:delete()
 
-      return { redirect_to = "/" }
-    end
+        return { redirect_to = "/" }
+      end
+    })
 })
 
 return ToDosFlow

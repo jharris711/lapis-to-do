@@ -1,4 +1,3 @@
-
 local capture_errors = require("lapis.application").capture_errors
 
 return function(app)
@@ -9,13 +8,13 @@ return function(app)
   app:match("todos", "/to-dos", capture_errors(function(self)
     return self:flow("toDos"):handle_create_todo()
   end))
-  app:get("/to-dos/:id", capture_errors(function(self)
+  app:match("todo","/to-dos/:id", capture_errors(function(self)
     return self:flow("toDos"):handle_get_todo()
   end))
-  app:get("/to-dos/:id/delete", capture_errors(function(self)
+  app:match("delete-todo", "/to-dos/:id/delete", capture_errors(function(self)
     return self:flow("toDos"):handle_delete_todo()
   end))
-  app:match("edit", "/to-dos/:id/edit", capture_errors(function(self)
+  app:match("edit-todo", "/to-dos/:id/edit", capture_errors(function(self)
     return self:flow("toDos"):handle_edit_requests()
   end))
 

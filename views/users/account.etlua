@@ -55,8 +55,14 @@
                 </div>
             </fieldset>
             <div class="gap-2 d-md-flex mt-2">
-                <a href="/users/<%= session.user_id %>/account/edit" class="btn btn-primary">Edit</button>
-                <a class="btn btn-danger" href="/" role="button">Cancel</a>
+                <% element("a", { 
+                    href = url_for("edit-account", { id = user.id }), 
+                    class = "btn btn-primary" 
+                }, "Edit") %>
+                <% element("a", { 
+                    href = url_for("home"), 
+                    class = "btn btn-danger" 
+                }, "Cancel") %>
             </div>
         </form>
     </div>
