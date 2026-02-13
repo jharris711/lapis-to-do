@@ -10,9 +10,63 @@
 </head>
 <body class="">
   <div class="container my-5">
-    <div class="row">
-      <h1>Lapis - A Lua Framework</h1>
-    </div>
+    <nav class="row navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Lapis To-Do App</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a 
+                class="nav-link active"
+                aria-current="page"
+                href="/"
+              >
+                Home
+              </a>
+            </li>
+          </ul>
+          <% if not session.user_id then %>
+            <div class="d-grid gap-2 d-md-block">
+              <a
+                class="btn btn-primary"
+                type="button"
+                href="/users/login"
+              >
+                Log In
+              </a>
+              <a
+                class="btn btn-outline-primary"
+                type="button"
+                href="/users/signup"
+              >
+                Sign Up
+              </a>
+            </div>
+          <% else %>
+            <div class="d-grid gap-2 d-md-block">
+              <a
+                class="btn btn-primary"
+                type="button"
+                href="/users/<%= session.user_id %>/account"
+              >
+                Account
+              </a>
+              
+              <a
+                class="btn btn-outline-primary"
+                type="button"
+                href="/users/signout"
+              >
+                Sign Out
+              </a>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </nav>
     <div class="row">
       <% content_for("inner") %>
     </div>

@@ -41,7 +41,8 @@ local ToDosFlow = Flow:extend({
 
         local success, err = ToDos:create({
           name = name,
-          description = description
+          description = description,
+          user_id = self.session.user_id
         })
 
         return { redirect_to = self:url_for("home") }

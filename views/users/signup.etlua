@@ -1,0 +1,91 @@
+<div class="container">
+    <div class="row mt-2">
+        <h2>Sign Up</h2>
+    </div>
+    <div class="row mt-4">
+        <form action="" method="post" class="">
+            <div class="mb-3">
+                <label
+                    for="firstNameInput"
+                    class="form-label"
+                >
+                    First Name
+                </label>
+                <input 
+                    type="text"
+                    class="form-control"
+                    id="firstNameInput"
+                    name="first_name"
+                    required
+                    value=""
+                >
+            </div>
+            <div class="mb-3">
+                <label
+                    for="lastNameInput"
+                    class="form-label"
+                >
+                    Last Name
+                </label>
+                <input 
+                    type="text"
+                    class="form-control"
+                    id="lastNameInput"
+                    name="last_name"
+                    required
+                    value=""
+                >
+            </div>
+            <div class="mb-3">
+                <label
+                    for="emailInput"
+                    class="form-label"
+                >
+                    Email
+                </label>
+                <input 
+                    type="email"
+                    class="form-control"
+                    id="emailInput"
+                    name="email"
+                    required
+                    value=""
+                >
+            </div>
+            <div class="mb-3">
+                <label
+                    for="passwordInput"
+                    class="form-label"
+                >
+                    Password
+                </label>
+                <input 
+                    type="password"
+                    class="form-control"
+                    id="passwordInput"
+                    name="password"
+                    required
+                    value=""
+                >
+            </div>
+            <div class="mb-3">
+                <label
+                    for="confirmationInput"
+                    class="form-label"
+                >
+                    Confirm Password
+                </label>
+                <input 
+                    type="password"
+                    class="form-control"
+                    id="confirmationInput"
+                    name="confirmation"
+                    required
+                    value=""
+                >
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a class="btn btn-danger" href="/" role="button">Cancel</a>
+        </form>
+    </div>
+</div>

@@ -1,14 +1,11 @@
 
 local capture_errors = require("lapis.application").capture_errors
-local respond_to = require("lapis.application").respond_to
-local Model = require("lapis.db.model").Model
-
-local ToDos = Model:extend("todos")
 
 return function(app)
   app:match("home", "/", capture_errors(function(self)
     return self:flow("home"):render_home_page()
   end))
+
   app:match("todos", "/to-dos", capture_errors(function(self)
     return self:flow("toDos"):handle_create_todo()
   end))
@@ -20,5 +17,21 @@ return function(app)
   end))
   app:match("edit", "/to-dos/:id/edit", capture_errors(function(self)
     return self:flow("toDos"):handle_edit_requests()
+  end))
+
+  app:match("signup", "/users/signup", capture_errors(function(self)
+    return self:flow("users"):handle_signup()
+  end))
+  app:match("login", "/users/login", capture_errors(function(self)
+    return self:flow("users"):handle_login()
+  end))
+  app:match("account", "/users/:id/account", capture_errors(function(self)
+    return self:flow("users"):handle_account()
+  end))
+  app:match("edit-account", "/users/:id/account/edit", capture_errors(function(self)
+    return self:flow("users"):handle_edit_account()
+  end))
+  app:match("signout", "/users/signout", capture_errors(function(self)
+    return self:flow("users"):handle_signout()
   end))
 end
