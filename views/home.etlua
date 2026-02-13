@@ -13,24 +13,26 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
-    <div class="row mt-5">
-        <h2>My To-Do's:</h2>
-        <ul>
-            <% for i, todo in ipairs(todos) do %>
-                <div class="card my-4">
-                    <div class="card-header">
-                        <%= todo.id %>
+    <% if user then %>
+        <div class="row mt-5">
+            <h2><%= user:get_display_name() %>'s To-Do's:</h2>
+            <ul>
+                <% for i, todo in ipairs(todos) do %>
+                    <div class="card my-4">
+                        <div class="card-header">
+                            <%= todo.id %>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><%= todo.name %></h5>
+                            <p class="card-text"><%= todo.description %></p>
+                            <% element("a", { 
+                                href = url_for("todo", { id = todo.id }), 
+                                class = "btn btn-primary" 
+                            }, "View To-do") %>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title"><%= todo.name %></h5>
-                        <p class="card-text"><%= todo.description %></p>
-                        <% element("a", { 
-                            href = url_for("todo", { id = todo.id }), 
-                            class = "btn btn-primary" 
-                        }, "View To-do") %>
-                    </div>
-                </div>
-            <% end %>
-        </ul>
-    </div>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
 </div>
