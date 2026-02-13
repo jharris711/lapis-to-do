@@ -23,7 +23,7 @@ local ToDosFlow = Flow:extend({
 
         self.todo = ToDos:find(id)
 
-        return { render = "todo", { id = id } }
+        return { render = "todos/show", { id = id } }
       end,
     }),
     handle_create_todo = respond_to({
@@ -36,11 +36,11 @@ local ToDosFlow = Flow:extend({
         end
 
         local id = self.params.id
-        
+
         if id then
           return { redirect_to = self:url_for("home") }
         end
-        
+
         local todo = self.params
         local name = todo['name']
         local description = todo['toDo']
@@ -60,7 +60,7 @@ local ToDosFlow = Flow:extend({
 
         self.todo = ToDos:find(id)
 
-        return { render = "edit" }
+        return { render = "todos/edit" }
       end,
       POST = function(self)
         local id = self.params.id
@@ -75,7 +75,7 @@ local ToDosFlow = Flow:extend({
           description = description
         })
 
-        return { render = "todo", { id = id }}
+        return { render = "todos/show", { id = id }}
       end
     }),
     handle_delete_todo = function(self)
