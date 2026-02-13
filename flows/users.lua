@@ -2,7 +2,6 @@ local Flow = require("lapis.flow").Flow
 local respond_to = require("lapis.application").respond_to
 local Users = require("models.users")
 local bcrypt = require("bcrypt")
-local json = require("cjson")
 
 local UsersFlow = Flow:extend({
     expose_assigns = true,
@@ -103,15 +102,11 @@ local UsersFlow = Flow:extend({
     handle_account = function(self)
         self.user = Users:find(self.session.user_id)
 
-        print(json.encode(self.user))
-
         return { render = "users/account" }
     end,
     handle_edit_account = respond_to({
         GET = function(self)
             self.user = Users:find(self.session.user_id)
-
-            print(json.encode(self.user))
 
             return { render = "users/edit" }
         end,

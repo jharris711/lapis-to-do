@@ -1,8 +1,5 @@
 local Flow = require("lapis.flow").Flow
-local Model = require("lapis.db.model").Model
-local json = require("cjson")
-
-local ToDos = Model:extend("todos")
+local ToDos = require("models.todos")
 
 local HomePageFlow = Flow:extend({
     expose_assigns = true,

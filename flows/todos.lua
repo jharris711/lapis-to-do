@@ -1,8 +1,6 @@
 local Flow = require("lapis.flow").Flow
-local Model = require("lapis.db.model").Model
 local respond_to = require("lapis.application").respond_to
-
-local ToDos = Model:extend("todos")
+local ToDos = require("models.todos")
 
 local ToDosFlow = Flow:extend({
     expose_assigns = true,
